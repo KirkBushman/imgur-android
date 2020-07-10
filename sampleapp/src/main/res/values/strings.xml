@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Sample App</string>
+
+    <string name="linear_layout">androidx.recyclerview.widget.LinearLayoutManager</string>
+
+    <string name="bttn_imgur_image">Imgur Image</string>
+
+    <string name="edit_insert_query">Insert query:</string>
+    <string name="bttn_ok">OK</string>
+</resources>
