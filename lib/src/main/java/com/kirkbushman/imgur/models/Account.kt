@@ -39,9 +39,6 @@ data class Account(
     @Json(name = "created")
     val created: Long,
 
-    @Json(name = "pro_expiration")
-    val proExpiration: Boolean,
-
     @Json(name = "is_blocked")
     val isBlocked: Boolean
 

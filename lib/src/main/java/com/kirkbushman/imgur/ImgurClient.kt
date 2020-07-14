@@ -1,10 +1,7 @@
 package com.kirkbushman.imgur
 
 import com.kirkbushman.imgur.auth.UserlessCredentials
-import com.kirkbushman.imgur.models.Account
-import com.kirkbushman.imgur.models.Album
-import com.kirkbushman.imgur.models.Gallery
-import com.kirkbushman.imgur.models.Image
+import com.kirkbushman.imgur.models.*
 import com.kirkbushman.imgur.utils.Utils.buildRetrofit
 import retrofit2.Retrofit
 
@@ -119,6 +116,60 @@ class ImgurClient(private val credentials: UserlessCredentials, logging: Boolean
         val authMap = getHeaderMap()
         val req = api.gallery(
             galleryHash = galleryHash,
+            showViral = showViral,
+            showMature = showMature,
+            includeAlbumPrevious = includeAlbumPrevious,
+            header = authMap
+        )
+
+        val res = req.execute()
+        if (!res.isSuccessful) {
+            return null
+        }
+
+        return res.body()?.data
+    }
+
+    fun gallery(
+        galleryHash: String,
+        sort: GallerySort,
+        showViral: Boolean = true,
+        showMature: Boolean = false,
+        includeAlbumPrevious: Boolean = false
+    ): Gallery? {
+
+        val authMap = getHeaderMap()
+        val req = api.gallery(
+            galleryHash = galleryHash,
+            sort = sort.sortStr,
+            showViral = showViral,
+            showMature = showMature,
+            includeAlbumPrevious = includeAlbumPrevious,
+            header = authMap
+        )
+
+        val res = req.execute()
+        if (!res.isSuccessful) {
+            return null
+        }
+
+        return res.body()?.data
+    }
+
+    fun gallery(
+        galleryHash: String,
+        sort: GallerySort,
+        window: GalleryWindow,
+        showViral: Boolean = true,
+        showMature: Boolean = false,
+        includeAlbumPrevious: Boolean = false
+    ): Gallery? {
+
+        val authMap = getHeaderMap()
+        val req = api.gallery(
+            galleryHash = galleryHash,
+            sort = sort.sortStr,
+            window = window.windowStr,
             showViral = showViral,
             showMature = showMature,
             includeAlbumPrevious = includeAlbumPrevious,

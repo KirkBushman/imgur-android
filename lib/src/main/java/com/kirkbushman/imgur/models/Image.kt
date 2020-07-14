@@ -25,7 +25,7 @@ data class Image(
     val type: String,
 
     @Json(name = "animated")
-    val animated: Boolean,
+    val isAnimated: Boolean,
 
     @Json(name = "width")
     val width: Int,
@@ -38,6 +38,9 @@ data class Image(
 
     @Json(name = "views")
     val views: Int,
+
+    @Json(name = "bandwidth")
+    val bandwidth: Long,
 
     @Json(name = "favorite")
     val favorite: Boolean,
@@ -64,6 +67,30 @@ data class Image(
     val inGallery: Boolean,
 
     @Json(name = "link")
-    val link: String
+    val link: String,
+
+    @Json(name = "mp4")
+    val mp4Link: String?,
+
+    @Json(name = "mp4_size")
+    val mp4Size: Long?,
+
+    @Json(name = "gifv")
+    val gifvLink: String?,
+
+    @Json(name = "hls")
+    val hlsLink: String?,
+
+    @Json(name = "ups")
+    val ups: Int?,
+
+    @Json(name = "downs")
+    val downs: Int?,
+
+    @Json(name = "points")
+    val points: Int?,
+
+    @Json(name = "score")
+    val score: Int?
 
 ) : Parcelable

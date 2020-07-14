@@ -53,4 +53,25 @@ interface ImgurApi {
         @Query("album_previews") includeAlbumPrevious: Boolean,
         @HeaderMap header: HashMap<String, String>
     ): Call<Envelope<Gallery>>
+
+    @GET("/3/gallery/{galleryHash}/{sort}")
+    fun gallery(
+        @Path("galleryHash") galleryHash: String,
+        @Path("sort") sort: String,
+        @Query("showViral") showViral: Boolean,
+        @Query("mature") showMature: Boolean,
+        @Query("album_previews") includeAlbumPrevious: Boolean,
+        @HeaderMap header: HashMap<String, String>
+    ): Call<Envelope<Gallery>>
+
+    @GET("/3/gallery/{galleryHash}/{sort}/{window}")
+    fun gallery(
+        @Path("galleryHash") galleryHash: String,
+        @Path("sort") sort: String,
+        @Path("window") window: String,
+        @Query("showViral") showViral: Boolean,
+        @Query("mature") showMature: Boolean,
+        @Query("album_previews") includeAlbumPrevious: Boolean,
+        @HeaderMap header: HashMap<String, String>
+    ): Call<Envelope<Gallery>>
 }

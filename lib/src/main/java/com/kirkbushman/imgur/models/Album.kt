@@ -21,6 +21,24 @@ data class Album(
     @Json(name = "datetime")
     val datetime: Long,
 
+    @Json(name = "cover")
+    val coverHash: String,
+
+    @Json(name = "cover_width")
+    val coverWidth: Int,
+
+    @Json(name = "cover_height")
+    val coverHeight: Int,
+
+    @Json(name = "account_id")
+    val accountId: Int?,
+
+    @Json(name = "account_url")
+    val accountUrl: String?,
+
+    @Json(name = "privacy")
+    val privacy: String,
+
     @Json(name = "views")
     val views: Int,
 
@@ -41,18 +59,6 @@ data class Album(
 
     @Json(name = "link")
     val link: String,
-
-    @Json(name = "cover")
-    val cover: String,
-
-    @Json(name = "cover_width")
-    val coverWidth: Int,
-
-    @Json(name = "cover_height")
-    val coverHeight: Int,
-
-    @Json(name = "privacy")
-    val privacy: String,
 
     @Json(name = "images_count")
     val imagesCount: Int,
