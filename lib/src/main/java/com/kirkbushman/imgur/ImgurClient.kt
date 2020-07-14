@@ -39,7 +39,7 @@ class ImgurClient(private val credentials: UserlessCredentials, logging: Boolean
         }
     }
 
-    private val api = getApi(logging)
+    private val api by lazy { getApi(logging) }
 
     fun account(username: String): Account? {
 
