@@ -30,11 +30,51 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/bttn_imgur_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/bttn_imgur_account"
+                />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/bttn_imgur_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="@string/bttn_imgur_image"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bttn_imgur_album"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/bttn_imgur_album"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bttn_imgur_album_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/bttn_imgur_album_images"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bttn_imgur_album_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/bttn_imgur_album_image"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bttn_imgur_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/bttn_imgur_gallery"
                 />
 
         </LinearLayout>

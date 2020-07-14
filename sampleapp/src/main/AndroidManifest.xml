@@ -22,7 +22,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activities.AccountActivity"/>
         <activity android:name=".activities.ImageActivity"/>
+        <activity android:name=".activities.AlbumActivity"/>
+        <activity android:name=".activities.AlbumImagesActivity"/>
+        <activity android:name=".activities.AlbumImageActivity"/>
+        <activity android:name=".activities.GalleryActivity"/>
 
     </application>
 

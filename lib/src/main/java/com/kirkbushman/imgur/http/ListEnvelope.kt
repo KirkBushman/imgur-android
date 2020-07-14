@@ -6,9 +6,9 @@ import kotlinx.android.parcel.Parcelize
 
 @JsonClass(generateAdapter = true)
 @Parcelize
-class Envelope<T : Parcelable>(
+class ListEnvelope<T : Parcelable>(
 
-    val data: T,
+    val data: List<T>,
 
     val success: Boolean,
     val status: Int

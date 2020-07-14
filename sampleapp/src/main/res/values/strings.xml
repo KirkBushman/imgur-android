@@ -3,7 +3,12 @@
 
     <string name="linear_layout">androidx.recyclerview.widget.LinearLayoutManager</string>
 
+    <string name="bttn_imgur_account">Imgur Account</string>
     <string name="bttn_imgur_image">Imgur Image</string>
+    <string name="bttn_imgur_album">Imgur Album</string>
+    <string name="bttn_imgur_album_images">Imgur Album Images</string>
+    <string name="bttn_imgur_album_image">Imgur Album Image</string>
+    <string name="bttn_imgur_gallery">Imgur Gallery</string>
 
     <string name="edit_insert_query">Insert query:</string>
     <string name="bttn_ok">OK</string>

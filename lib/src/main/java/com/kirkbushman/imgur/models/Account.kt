@@ -10,6 +10,39 @@ import kotlinx.android.parcel.Parcelize
 data class Account(
 
     @Json(name = "id")
-    val id: String
+    val id: Long,
+
+    @Json(name = "cover")
+    val coverUrl: String,
+
+    @Json(name = "cover_name")
+    val coverName: String,
+
+    @Json(name = "url")
+    val url: String,
+
+    @Json(name = "bio")
+    val bio: String?,
+
+    @Json(name = "avatar")
+    val avatarUrl: String,
+
+    @Json(name = "avatar_name")
+    val avatarName: String,
+
+    @Json(name = "reputation")
+    val reputation: Int,
+
+    @Json(name = "reputation_name")
+    val reputationName: String,
+
+    @Json(name = "created")
+    val created: Long,
+
+    @Json(name = "pro_expiration")
+    val proExpiration: Boolean,
+
+    @Json(name = "is_blocked")
+    val isBlocked: Boolean
 
 ) : Parcelable

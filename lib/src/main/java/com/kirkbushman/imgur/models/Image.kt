@@ -34,6 +34,36 @@ data class Image(
     val height: Int,
 
     @Json(name = "size")
-    val size: Long
+    val size: Long,
+
+    @Json(name = "views")
+    val views: Int,
+
+    @Json(name = "favorite")
+    val favorite: Boolean,
+
+    @Json(name = "nsfw")
+    val isNsfw: Boolean?,
+
+    @Json(name = "section")
+    val section: String?,
+
+    @Json(name = "is_ad")
+    val isAd: Boolean,
+
+    @Json(name = "in_most_viral")
+    val inMostViral: Boolean,
+
+    @Json(name = "has_sound")
+    val hasSound: Boolean,
+
+    @Json(name = "edited")
+    val edited: Long,
+
+    @Json(name = "in_gallery")
+    val inGallery: Boolean,
+
+    @Json(name = "link")
+    val link: String
 
 ) : Parcelable

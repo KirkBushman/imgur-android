@@ -36,7 +36,6 @@ class ImgurApplication : Application() {
         val xpp = resources.getXml(R.xml.credentials)
 
         var clientId = ""
-        var clientSecret = ""
 
         while (xpp.eventType != XmlPullParser.END_DOCUMENT) {
 
@@ -46,7 +45,6 @@ class ImgurApplication : Application() {
 
                     when (xpp.name) {
                         "clientId" -> clientId = xpp.nextText()
-                        "clientSecret" -> clientSecret = xpp.nextText()
                     }
                 }
             }

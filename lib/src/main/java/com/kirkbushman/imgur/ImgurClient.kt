@@ -1,7 +1,9 @@
 package com.kirkbushman.imgur
 
 import com.kirkbushman.imgur.auth.UserlessCredentials
+import com.kirkbushman.imgur.models.Account
 import com.kirkbushman.imgur.models.Album
+import com.kirkbushman.imgur.models.Gallery
 import com.kirkbushman.imgur.models.Image
 import com.kirkbushman.imgur.utils.Utils.buildRetrofit
 import retrofit2.Retrofit
@@ -13,7 +15,7 @@ class ImgurClient(private val credentials: UserlessCredentials, logging: Boolean
         @Volatile
         private var retrofit: Retrofit? = null
         @Volatile
-        private var api: ImgurApi2? = null
+        private var api: ImgurApi? = null
 
         @Synchronized
         fun getRetrofit(logging: Boolean = false): Retrofit {
@@ -28,11 +30,11 @@ class ImgurClient(private val credentials: UserlessCredentials, logging: Boolean
         }
 
         @Synchronized
-        fun getApi(logging: Boolean = false): ImgurApi2 {
+        fun getApi(logging: Boolean = false): ImgurApi {
             return synchronized(this) {
 
                 if (api == null) {
-                    api = getRetrofit(logging).create(ImgurApi2::class.java)
+                    api = getRetrofit(logging).create(ImgurApi::class.java)
                 }
 
                 api!!
@@ -41,6 +43,19 @@ class ImgurClient(private val credentials: UserlessCredentials, logging: Boolean
     }
 
     private val api = getApi(logging)
+
+    fun account(username: String): Account? {
+
+        val authMap = getHeaderMap()
+        val req = api.account(username, authMap)
+        val res = req.execute()
+
+        if (!res.isSuccessful) {
+            return null
+        }
+
+        return res.body()?.data
+    }
 
     fun image(imageHash: String): Image? {
 
@@ -61,6 +76,56 @@ class ImgurClient(private val credentials: UserlessCredentials, logging: Boolean
         val req = api.album(albumHash, authMap)
         val res = req.execute()
 
+        if (!res.isSuccessful) {
+            return null
+        }
+
+        return res.body()?.data
+    }
+
+    fun albumImages(albumHash: String): List<Image>? {
+
+        val authMap = getHeaderMap()
+        val req = api.albumImages(albumHash, authMap)
+        val res = req.execute()
+
+        if (!res.isSuccessful) {
+            return null
+        }
+
+        return res.body()?.data
+    }
+
+    fun albumImage(albumHash: String, imageHash: String): Image? {
+
+        val authMap = getHeaderMap()
+        val req = api.albumImage(albumHash, imageHash, authMap)
+        val res = req.execute()
+
+        if (!res.isSuccessful) {
+            return null
+        }
+
+        return res.body()?.data
+    }
+
+    fun gallery(
+        galleryHash: String,
+        showViral: Boolean = true,
+        showMature: Boolean = false,
+        includeAlbumPrevious: Boolean = false
+    ): Gallery? {
+
+        val authMap = getHeaderMap()
+        val req = api.gallery(
+            galleryHash = galleryHash,
+            showViral = showViral,
+            showMature = showMature,
+            includeAlbumPrevious = includeAlbumPrevious,
+            header = authMap
+        )
+
+        val res = req.execute()
         if (!res.isSuccessful) {
             return null
         }
