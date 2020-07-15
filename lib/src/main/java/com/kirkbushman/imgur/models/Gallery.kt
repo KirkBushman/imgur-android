@@ -12,11 +12,8 @@ data class Gallery(
     @Json(name = "id")
     val id: String,
 
-    @Json(name = "cover")
-    val coverHash: String,
-
     @Json(name = "title")
-    val title: String,
+    val title: String?,
 
     @Json(name = "description")
     val description: String?,
@@ -24,11 +21,14 @@ data class Gallery(
     @Json(name = "datetime")
     val datetime: Long,
 
+    @Json(name = "cover")
+    val coverHash: String?,
+
     @Json(name = "cover_width")
-    val coverWidth: Int,
+    val coverWidth: Int?,
 
     @Json(name = "cover_height")
-    val coverHeight: Int,
+    val coverHeight: Int?,
 
     @Json(name = "account_url")
     val accountUrl: String,
@@ -70,7 +70,7 @@ data class Gallery(
     val isNsfw: Boolean,
 
     @Json(name = "section")
-    val section: String,
+    val section: String?,
 
     @Json(name = "comment_count")
     val commentCount: Int,

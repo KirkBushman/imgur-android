@@ -13,7 +13,7 @@ data class Album(
     val id: String,
 
     @Json(name = "title")
-    val title: String,
+    val title: String?,
 
     @Json(name = "description")
     val description: String?,
@@ -22,13 +22,13 @@ data class Album(
     val datetime: Long,
 
     @Json(name = "cover")
-    val coverHash: String,
+    val coverHash: String?,
 
     @Json(name = "cover_width")
-    val coverWidth: Int,
+    val coverWidth: Int?,
 
     @Json(name = "cover_height")
-    val coverHeight: Int,
+    val coverHeight: Int?,
 
     @Json(name = "account_id")
     val accountId: Int?,
@@ -49,7 +49,7 @@ data class Album(
     val isNsfw: Boolean,
 
     @Json(name = "section")
-    val section: String,
+    val section: String?,
 
     @Json(name = "is_ad")
     val isAd: Boolean,
