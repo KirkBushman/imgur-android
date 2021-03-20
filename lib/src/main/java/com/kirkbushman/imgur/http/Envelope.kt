@@ -1,16 +1,12 @@
 package com.kirkbushman.imgur.http
 
-import android.os.Parcelable
 import com.squareup.moshi.JsonClass
-import kotlinx.android.parcel.Parcelize
 
 @JsonClass(generateAdapter = true)
-@Parcelize
-class Envelope<T : Parcelable>(
+class Envelope<T>(
 
     val data: T,
 
     val success: Boolean,
     val status: Int
-
-) : Parcelable
+)

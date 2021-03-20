@@ -3,7 +3,7 @@ package com.kirkbushman.imgur.models
 import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @JsonClass(generateAdapter = true)
 @Parcelize
@@ -40,10 +40,10 @@ data class Image(
     val views: Int,
 
     @Json(name = "bandwidth")
-    val bandwidth: Long,
+    val bandwidth: Long?,
 
     @Json(name = "favorite")
-    val favorite: Boolean,
+    val favorite: Boolean?,
 
     @Json(name = "nsfw")
     val isNsfw: Boolean?,
@@ -52,13 +52,13 @@ data class Image(
     val section: String?,
 
     @Json(name = "is_ad")
-    val isAd: Boolean,
+    val isAd: Boolean?,
 
     @Json(name = "in_most_viral")
-    val inMostViral: Boolean,
+    val inMostViral: Boolean?,
 
     @Json(name = "has_sound")
-    val hasSound: Boolean,
+    val hasSound: Boolean?,
 
     @Json(name = "edited")
     val edited: Long,
