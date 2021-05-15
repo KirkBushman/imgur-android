@@ -3,41 +3,46 @@ package com.kirkbushman.sampleapp
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.kirkbushman.sampleapp.activities.*
-import kotlinx.android.synthetic.main.activity_main.*
+import com.kirkbushman.sampleapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         ImgurApplication.instance?.loadClient()
 
-        bttn_imgur_account.setOnClickListener {
+        binding.bttnImgurAccount.setOnClickListener {
 
             AccountActivity.start(this)
         }
 
-        bttn_imgur_image.setOnClickListener {
+        binding.bttnImgurImage.setOnClickListener {
 
             ImageActivity.start(this)
         }
 
-        bttn_imgur_album.setOnClickListener {
+        binding.bttnImgurAlbum.setOnClickListener {
 
             AlbumActivity.start(this)
         }
 
-        bttn_imgur_album_images.setOnClickListener {
+        binding.bttnImgurAlbumImages.setOnClickListener {
 
             AlbumImagesActivity.start(this)
         }
 
-        bttn_imgur_album_image.setOnClickListener {
+        binding.bttnImgurAlbumImage.setOnClickListener {
 
             AlbumImageActivity.start(this)
         }
 
-        bttn_imgur_gallery.setOnClickListener {
+        binding.bttnImgurGallery.setOnClickListener {
 
             GalleryActivity.start(this)
         }

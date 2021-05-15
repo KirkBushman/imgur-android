@@ -3,11 +3,12 @@ package com.kirkbushman.sampleapp.activities.base
 import android.os.Bundle
 import com.kirkbushman.imgur.ImgurClient
 import com.kirkbushman.sampleapp.ImgurApplication
-import com.kirkbushman.sampleapp.R
+import com.kirkbushman.sampleapp.databinding.ActivitySearchPrint2Binding
 import com.kirkbushman.sampleapp.utils.doAsync
-import kotlinx.android.synthetic.main.activity_search_print_2.*
 
-abstract class BaseSearchPrint2Activity<T> : BaseActivity(R.layout.activity_search_print_2) {
+abstract class BaseSearchPrint2Activity<T> : BaseActivity() {
+
+    private lateinit var binding: ActivitySearchPrint2Binding
 
     private val client by lazy { ImgurApplication.instance?.getClient() }
 
@@ -18,20 +19,23 @@ abstract class BaseSearchPrint2Activity<T> : BaseActivity(R.layout.activity_sear
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setSupportActionBar(toolbar)
+        binding = ActivitySearchPrint2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.let {
             it.setDisplayHomeAsUpEnabled(true)
             it.setDisplayShowHomeEnabled(true)
         }
 
-        search_bttn.setOnClickListener {
+        binding.searchBttn.setOnClickListener {
 
-            val query = query.text.trim().toString()
-            val query2 = query2.text.trim().toString()
+            val query = binding.query.text.trim().toString()
+            val query2 = binding.query2.text.trim().toString()
 
             doAsync(
                 doWork = { item = fetchItem(client!!, query, query2) },
-                onPost = { obj_text.text = item.toString() }
+                onPost = { binding.objText.text = item.toString() }
             )
         }
     }
