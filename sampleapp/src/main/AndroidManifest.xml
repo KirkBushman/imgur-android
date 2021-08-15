@@ -14,20 +14,48 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
 
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
+
         </activity>
 
-        <activity android:name=".activities.AccountActivity"/>
-        <activity android:name=".activities.ImageActivity"/>
-        <activity android:name=".activities.AlbumActivity"/>
-        <activity android:name=".activities.AlbumImagesActivity"/>
-        <activity android:name=".activities.AlbumImageActivity"/>
-        <activity android:name=".activities.GalleryActivity"/>
+        <activity
+            android:name=".activities.AccountActivity"
+            android:exported="false"
+            />
+
+        <activity
+            android:name=".activities.ImageActivity"
+            android:exported="false"
+            />
+
+        <activity
+            android:name=".activities.AlbumActivity"
+            android:exported="false"
+            />
+
+        <activity
+            android:name=".activities.AlbumImagesActivity"
+            android:exported="false"
+            />
+
+        <activity
+            android:name=".activities.AlbumImageActivity"
+            android:exported="false"
+            />
+
+        <activity
+            android:name=".activities.GalleryActivity"
+            android:exported="false"
+            />
 
     </application>
 
